@@ -2,9 +2,9 @@
 
 Zombie::Zombie()
 {
-	int	x = 1;
+	static int x = 1;
 	std::cout << GREEN << "Zombie "<< x << " joined the horde\n" RESET << std::endl;
-	x += 1;
+	x++;
 }
 
 Zombie::~Zombie()
