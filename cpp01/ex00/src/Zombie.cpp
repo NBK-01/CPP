@@ -15,15 +15,3 @@ void Zombie::announce() const
 	std::cout << name << MAGENTA " :BraiiiiiiinnnzzzZ..\n" RESET << std::endl;
 }
 
-Zombie* newZombie(str name)
-{
-	Zombie *zombie = new Zombie(name);
-	zombie->announce();
-	return (zombie);
-}
-
-void	randomChump(str name)
-{
-	Zombie zombie = Zombie(name);
-	zombie.announce();
-}
