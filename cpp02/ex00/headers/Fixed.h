@@ -34,9 +34,10 @@ class Fixed
 		const int	_bits;
 	public:
 		Fixed();
-		Fixed(const Fixed &fixed);
+		Fixed(const Fixed &other);
 		~Fixed();
-		
+		Fixed& operator=(const Fixed &other);
+		/*--------------------------------*/
 		void	setRawBits() const;
 		int		getRawBits(const int raw);
 };
