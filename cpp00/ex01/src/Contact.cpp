@@ -38,7 +38,7 @@ const str	Contact::get_contact(bool full)
 {
 	if (full == false)
 	{
-		 std::cout << "| " << std::setw(10) << std::right << this->index << "| "
+		 std::cout << "| " << std::setw(10) << this->index << "| "
           << std::setw(10) << std::right << get_contacts(this->first_name) << "| "
           << std::setw(10) << std::right << get_contacts(this->last_name) << "| "
           << std::setw(10) << std::right << get_contacts(this->nickname) << "|\n";

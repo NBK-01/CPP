@@ -1,13 +1,9 @@
-NAME = megaphone
-
+NAME = Zombie
 AUTHOR = nkanaan
-
 COMP = c++
-
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = megaphone.cpp
-
+SRC = main.cpp src/Zombie.cpp src/newZombie.cpp src/randomChump.cpp
 OBJS = $(addprefix objs/, $(SRC:.cpp=.o))
 
 SHELL := /bin/bash
@@ -30,19 +26,14 @@ header:
 	@echo "| '--'4|| '--'2|"
 	@echo "'------''------'"
 	@echo "NKANAAN but in CPP"
-
-ifeq ($(shell test -e ./proj && test -d objs/ && echo -n yes), yes)
-	@echo "nothing to be done for: all"
-else
 	@printf "%b" "$(OBJ_COLOR)Author:	$(WARN_COLOR)$(AUTHOR)\n"
 	@printf "%b" "$(OBJ_COLOR)Compiler: $(WARN_COLOR)$(COMP)\n\033[m"
 	@printf "%b" "$(OBJ_COLOR)Flags: 	$(WARN_COLOR)$(FLAGS)\n\033[m"
 	@echo
-endif
 
-objs/%.o:	%.cpp
-			@mkdir -p objs
-			@${COMP} ${FLAGS} -c $< -o $@
+objs/%.o: %.cpp
+	@mkdir -p $(dir $@)
+	@${COMP} ${FLAGS} -c $< -o $@
 
 $(NAME): $(OBJS)
 	@$(COMP) $(FLAGS) -o $(NAME) $(OBJS)
@@ -52,9 +43,7 @@ clean:
 	@rm -rf objs
 	@printf "$(OBJ_COLOR)Objects removed$(NO_COLOR)\n"
 
-re:
-	@make clean
-	@make all
+re: clean all
 
 fclean: clean
 	@rm -f $(NAME)

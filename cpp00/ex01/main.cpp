@@ -16,8 +16,8 @@ void	fn_search(Phonebook &phonebook)
     }
     std::cout << "-------------------------------------------------" << std::endl;
     std::cout << "\n";
-    std::cout << YELLOW "View a contact by selecting by [ID]" << std::endl;
-	for (int i = phonebook.get_size(); i > 0; i--)
+    std::cout << YELLOW "View a contact by selecting by [ID]. select index 42 to leave" << std::endl;
+	for (int i = 0; i >= (int)phonebook.get_size(); i++)
 		std::cout << "ID: " << i << std::endl;
 	std::cout << "\n";
 	for (;;)
@@ -35,6 +35,8 @@ void	fn_search(Phonebook &phonebook)
 			phonebook.get_item(index);
 			break ;
 		}
+		else if (index == 42)
+			break ;
 		else
 			std::cout << RED "Pick something out of the list please" RESET << std::endl;
 	}
