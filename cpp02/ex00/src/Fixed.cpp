@@ -3,9 +3,9 @@
 
 Fixed::Fixed(): _bits(8) {}
 
-Fixed::Fixed(const Fixed &other) : _bits(other._bits)
+Fixed::Fixed(const Fixed &other)
 {
-	this->_val = other._val;
+	*this = other;
 }
 
 Fixed& Fixed::operator=(const Fixed &other)
@@ -18,3 +18,5 @@ Fixed& Fixed::operator=(const Fixed &other)
 }
 
 Fixed::~Fixed(){}
+
+

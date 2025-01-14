@@ -3,9 +3,7 @@
 
 HumanB::HumanB(str name) : name(name) {}
 
-HumanB::~HumanB()
-{
-}
+HumanB::~HumanB(){}
 
 void	HumanB::set_weapon(Weapon &w)
 {

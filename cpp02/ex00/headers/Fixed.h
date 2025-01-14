@@ -30,8 +30,8 @@ typedef std::string str;
 class Fixed
 {
 	private:
-		int	_val;
-		const int	_bits;
+		int					_val;
+		static const int	_bits;
 	public:
 		Fixed();
 		Fixed(const Fixed &other);
