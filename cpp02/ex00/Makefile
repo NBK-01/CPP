@@ -1,9 +1,9 @@
-NAME = Zombie
+NAME = Fixed
 AUTHOR = nkanaan
 COMP = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp src/Zombie.cpp src/newZombie.cpp src/randomChump.cpp
+SRC = main.cpp src/Fixed.cpp
 OBJS = $(addprefix objs/, $(SRC:.cpp=.o))
 
 SHELL := /bin/bash

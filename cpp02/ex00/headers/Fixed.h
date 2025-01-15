@@ -6,7 +6,7 @@
 #include <string>
 #include <iostream>
 
-typedef std::string str;
+/*typedef std::string str;*/
 
 #define RESET        "\e[0m"
 #define BOLD         "\e[1m"
@@ -31,15 +31,17 @@ class Fixed
 {
 	private:
 		int					_val;
-		static const int	_bits;
+		static const int	_bits = 8;
 	public:
 		Fixed();
 		Fixed(const Fixed &other);
 		~Fixed();
 		Fixed& operator=(const Fixed &other);
 		/*--------------------------------*/
-		void	setRawBits() const;
-		int		getRawBits(const int raw);
+		/*---------- SET & GET -----------*/
+		/*--------------------------------*/
+		void	setRawBits(const int raw);
+		int		getRawBits() const;
 };
 
 
