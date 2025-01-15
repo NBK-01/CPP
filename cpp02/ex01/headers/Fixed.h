@@ -5,8 +5,9 @@
 
 #include <string>
 #include <iostream>
+#include <cmath>
 
-typedef std::string str;
+/*typedef std::string str;*/
 
 #define RESET        "\e[0m"
 #define BOLD         "\e[1m"
@@ -30,16 +31,29 @@ typedef std::string str;
 class Fixed
 {
 	private:
-		int	_val;
-		const int	_bits;
+		int					_val;
+		static const int	_bits = 8;
 	public:
 		Fixed();
-		Fixed(const Fixed &fixed);
+		/*------- Constructors ---------*/
+		Fixed(const int val);
+		Fixed(const float val);
+		Fixed(const Fixed &other);
+		/*------- Destructor ----------*/
 		~Fixed();
-		
-		void	setRawBits() const;
-		int		getRawBits(const int raw);
+		/*------- Operator Overloads ---*/
+		Fixed& operator=(const Fixed &other);
+		/*-----------Set & Get------------------*/
+		void	setRawBits(const int raw);
+		int		getRawBits() const;
+		/*--------- Member functions ----------*/
+		float	toFloat(void) const;
+		int		toInt(void) const;
 };
+
+/*------- Non-member functions ---------*/
+/*----------- Overload op --------------*/
+std::ostream& operator<<(std::ostream &out, const Fixed &fixed);
 
 
 #endif // 
