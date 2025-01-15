@@ -9,9 +9,6 @@ int main()
 	claptrap.beRepaired(5);
 	claptrap.attack("John Connor");
 	claptrap.attack("John Connor");
-	claptrap.attack("John Connor");
-	claptrap.attack("John Connor");
-	claptrap.attack("John Connor");
-	claptrap.attack("John Connor");
+	claptrap.guardGate();
 	return (0);
 }
