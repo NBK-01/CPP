@@ -1,9 +1,9 @@
-NAME = ClapTrap
+NAME = Animal
 AUTHOR = nkanaan
 COMP = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp src/ClapTrap.cpp
+SRC = main.cpp src/Animal.cpp src/Cat.cpp src/Dog.cpp src/WrongAnimal.cpp src/WrongCat.cpp
 OBJS = $(addprefix objs/, $(SRC:.cpp=.o))
 
 SHELL := /bin/bash
