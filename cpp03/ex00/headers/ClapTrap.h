@@ -33,7 +33,9 @@ class ClapTrap
 	public:
 		ClapTrap(str _name);
 		~ClapTrap();
-		void	attack(str const & target);
+		ClapTrap(ClapTrap const &other);
+		ClapTrap & operator=(ClapTrap const &other);
+		void	attack(str const &target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
 };
