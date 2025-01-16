@@ -26,10 +26,15 @@ header:
 	@echo "| '--'4|| '--'2|"
 	@echo "'------''------'"
 	@echo "NKANAAN but in CPP"
+
+ifeq ($(shell test -e ./ScavTrap && test -d objs/ && echo -n yes), yes)
+	@echo "nothing to be done for: all"
+else
 	@printf "%b" "$(OBJ_COLOR)Author:	$(WARN_COLOR)$(AUTHOR)\n"
 	@printf "%b" "$(OBJ_COLOR)Compiler: $(WARN_COLOR)$(COMP)\n\033[m"
 	@printf "%b" "$(OBJ_COLOR)Flags: 	$(WARN_COLOR)$(FLAGS)\n\033[m"
 	@echo
+endif
 
 objs/%.o: %.cpp
 	@mkdir -p $(dir $@)
