@@ -121,7 +121,6 @@ Fixed Fixed::operator--(int)
 	return (f);
 }
 
-
 void	Fixed::setRawBits(const int raw)
 {
 	this->_val = raw;

@@ -1,5 +1,5 @@
-#ifndef CLAPTRAP_H
-# define CLAPTRAP_H
+#ifndef ANIMAL_H
+# define ANIMAL_H
 
 #pragma once
 
@@ -22,21 +22,19 @@ typedef std::string str;
 #define CYAN         "\e[36m"
 #define WHITE        "\e[37m"
 
-class ClapTrap
+class Animal
 {
-	private:
-		str _name;
-		int	hitPoints;
-		int	energyPoints;
-		int	attackDamage;
+	protected:
+		str _type;
 	public:
-		ClapTrap(str _name);
-		~ClapTrap();
-		ClapTrap(ClapTrap const &other);
-		ClapTrap & operator=(ClapTrap const &other);
-		void	attack(str const &target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
+		Animal();
+		virtual ~Animal();
+		Animal(const Animal &copy);
+		Animal &operator=(const Animal &copy);
+		/*---------------------------------------*/
+		/*we're using the (virtual) keyword here to be able
+		 * to override the function in the derived class*/
+		virtual void makeSound() const = 0;
 };
 
 #endif // 

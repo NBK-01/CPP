@@ -1,6 +1,7 @@
 
 #include "../headers/WrongAnimal.h"
 
+
 WrongAnimal::WrongAnimal()
 {
 	this->_type = "WrongAnimal";

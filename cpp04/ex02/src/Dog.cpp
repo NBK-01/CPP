@@ -14,7 +14,7 @@ Dog::~Dog()
 	std::cout << BOLD RED "Dog default destructor called" RESET << std::endl;
 }
 
-Dog::Dog(const Dog &cpy): Animal(cpy)
+Dog::Dog(const Dog &cpy)
 {
 	this->_brain = new Brain();
 	this->_type = cpy._type;

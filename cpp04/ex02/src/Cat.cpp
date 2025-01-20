@@ -13,17 +13,17 @@ Cat::~Cat()
 	std::cout << BOLD RED "Cat default destructor called" RESET << std::endl;
 }
 
-Cat::Cat(const Cat &copy): Animal(copy)
+Cat::Cat(const Cat &copy)
 {
-	this->_brain = new Brain();
-	this->_type = copy._type;
+	this->_type = this->_type;
+	this->_brain = copy._brain;
 }
 
 Cat &Cat::operator=(const Cat &copy)
 {
 	if (this != &copy)
 	{
-		this->_brain = new Brain();
+		this->_brain = copy._brain;
 		this->_type = copy._type;
 	}
 	return (*this);
