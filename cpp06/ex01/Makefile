@@ -1,4 +1,3 @@
-
 NAME = serialize
 AUTHOR = nkanaan
 COMP = c++

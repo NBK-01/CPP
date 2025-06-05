@@ -1,7 +1,7 @@
 NAME = phone
 AUTHOR = nkanaan
 COMP = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -no-pie -std=c++98
 
 SRC = main.cpp src/Phonebook.cpp src/Contact.cpp
 OBJS = $(addprefix objs/, $(SRC:.cpp=.o))
