@@ -12,16 +12,16 @@ static bool isDisplayable(char c) { return std::isprint(static_cast<unsigned cha
 
 static void printChar(double d)
 {
-	std::cout << "char: ";
+	std::cout << GREEN BOLD "char: " RESET;
 	if (std::isnan(d) || d < 0 || d > 127)
-		std::cout << "impossible" << std::endl;
+		std::cout << RED BOLD "!! IMPOSSIBLE !!" RESET << std::endl;
 	else
 	{
 		char c = static_cast<char>(d);
 		if (isDisplayable(c))
-			std::cout << "'" << c << "'" << std::endl;
+			std::cout << "'" << YELLOW << c << RESET "'" << std::endl;
 		else
-			std::cout << "Non displayable" << std::endl;
+			std::cout << BLUE "Non displayable" RESET << std::endl;
 	}
 }
 
@@ -31,11 +31,11 @@ static void printInt(double d)
 	if (std::isnan(d) || std::isinf(d) ||
 		d > static_cast<double>(std::numeric_limits<int>::max()) ||
 		d < static_cast<double>(std::numeric_limits<int>::min()))
-		std::cout << "impossible" << std::endl;
+		std::cout << RED BOLD "!! IMPOSSIBLE !!" RESET << std::endl;
 	else
 	{
 		int i = static_cast<int>(d);
-		std::cout << i << std::endl;
+		std::cout << BLUE << i << RESET << std::endl;
 	}
 }
 
@@ -48,7 +48,7 @@ static void printFloat(double d)
 	else if (std::isinf(f))
 		std::cout << (f > 0 ? "+inff" : "-inff") << std::endl;
 	else
-		std::cout << std::fixed << std::setprecision(1) << f << "f" << std::endl;
+		std::cout << std::fixed << std::setprecision(1) << BLUE << f << "f" RESET << std::endl;
 }
 
 static void printDouble(double d)
@@ -59,24 +59,27 @@ static void printDouble(double d)
 	else if (std::isinf(d))
 		std::cout << (d > 0 ? "+inf" : "-inf") << std::endl;
 	else
-		std::cout << std::fixed << std::setprecision(1) << d << std::endl;
+		std::cout << std::fixed << BLUE << std::setprecision(1) << d << RESET << std::endl;
 }
 
-static void printFromChar(char c) {
+static void printFromChar(char c)
+{
 	printChar(static_cast<double>(c));
 	printInt(static_cast<double>(c));
 	printFloat(static_cast<double>(c));
 	printDouble(static_cast<double>(c));
 }
 
-static void printFromInt(int i) {
+static void printFromInt(int i)
+{
 	printChar(static_cast<double>(i));
 	printInt(static_cast<double>(i));
 	printFloat(static_cast<double>(i));
 	printDouble(static_cast<double>(i));
 }
 
-static void printFromFloat(float f) {
+static void printFromFloat(float f)
+{
 	double d = static_cast<double>(f);
 	printChar(d);
 	printInt(d);
@@ -84,15 +87,18 @@ static void printFromFloat(float f) {
 	printDouble(d);
 }
 
-static void printFromDouble(double d) {
+static void printFromDouble(double d)
+{
 	printChar(d);
 	printInt(d);
 	printFloat(d);
 	printDouble(d);
 }
 
-void ScalarConverter::convert(const std::string& literal) {
-	if (literal.length() == 3 && literal[0] == '\'' && literal[2] == '\'') {
+void ScalarConverter::convert(const std::string& literal)
+{
+	if (literal.length() == 3 && literal[0] == '\'' && literal[2] == '\'')
+	{
 		char c = literal[1];
 		printFromChar(c);
 		return;
@@ -109,8 +115,8 @@ void ScalarConverter::convert(const std::string& literal) {
 		printFromDouble(d);
 		return;
 	}
-
-	if (literal == "nanf" || literal == "+inff" || literal == "-inff") {
+	if (literal == "nanf" || literal == "+inff" || literal == "-inff")
+	{
 		float f;
 		if (literal == "nanf")
 			f = std::numeric_limits<float>::quiet_NaN();
@@ -122,7 +128,8 @@ void ScalarConverter::convert(const std::string& literal) {
 		return;
 	}
 
-	if (literal[literal.length() - 1] == 'f') {
+	if (literal[literal.length() - 1] == 'f')
+	{
 		char* endptr = NULL;
 		float f = static_cast<float>(std::strtod(literal.c_str(), &endptr));
 		if (*endptr == 'f' && *(endptr + 1) == '\0') {
@@ -142,10 +149,10 @@ void ScalarConverter::convert(const std::string& literal) {
 
 	char* endptrDouble = NULL;
 	double d = std::strtod(literal.c_str(), &endptrDouble);
-	if (*endptrDouble == '\0') {
+	if (*endptrDouble == '\0')
+	{
 		printFromDouble(d);
 		return;
 	}
-
 	std::cout << "Invalid literal" << std::endl;
 }

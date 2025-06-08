@@ -3,30 +3,27 @@
 #include <cstdlib>
 #include <stdlib.h>
 
-static int	serializer(char **av)
+static int	serializer()
 {
 	Data	data;
-	data.value = atoi(av[1]);
+	data.value = 20;
 	uintptr_t x = Serializer::serialize(&data); 
 	Data *ptr = Serializer::deserialize(x);
-    std::cout << "Original Data address: " << &data << std::endl;
-    std::cout << "Deserialized pointer:    " << ptr << std::endl;
-    std::cout << "Value in Data: " << ptr->value << std::endl;
+    std::cout << GREEN BOLD "Address: " RESET << &data << std::endl;
+    std::cout << GREEN BOLD "Deserialized ptr: " RESET << ptr << std::endl;
+    std::cout << GREEN BOLD "Value: " RESET << ptr->value << std::endl;
     if (ptr == &data)
 		return (1);
     else
 		return (0);
 }
 
-int main (int ac, char **av)
+int main ()
 {
 	int	res;
 
 	std::cout << GREEN "================================" RESET << std::endl;
-	if (ac != 2)
-		std::cout << RED "give me something i can work with" RESET << std::endl;
-	else
-		res = serializer(av);
+	res = serializer();
 	if (!res)
 	{
 		std::cout << RED "oops, that didn't work out" RESET << std::endl;

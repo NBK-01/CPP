@@ -6,5 +6,4 @@ struct Data {
 };
 
 
-
 #endif // !DEBUG
