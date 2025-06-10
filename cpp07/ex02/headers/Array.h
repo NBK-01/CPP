@@ -2,6 +2,9 @@
 # define ARRAY_H
 
 # include "main.h"
+# include <iostream>
+# include <cstddef>
+#include <cstdlib>
 
 template <typename T>
 
@@ -11,8 +14,9 @@ class Array
 		T				*_array;
 		unsigned int	_size;
 	public:
-		Array() : _array(nullptr), _size(0) {}
-		Array(unsigned int size) : _size(size) {
+		Array() :_size(0) {}
+		Array(unsigned int size) : _size(size)
+		{
 			_array = new T[size];
 			for (unsigned int i = 0; i < size; ++i)
 				_array[i] = T();

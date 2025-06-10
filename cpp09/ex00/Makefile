@@ -1,9 +1,9 @@
-NAME = Array 
+NAME = bitcoin
 AUTHOR = nkanaan
 COMP = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp
+SRC = main.cpp 
 OBJS = $(addprefix objs/, $(SRC:.cpp=.o))
 
 SHELL := /bin/bash
