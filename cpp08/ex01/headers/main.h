@@ -7,6 +7,9 @@
 #include <iostream>
 #include <ostream>
 #include <exception>
+#include <vector>
+#include <algorithm>
+#include <limits>
 
 typedef std::string str;
 typedef std::exception except;
