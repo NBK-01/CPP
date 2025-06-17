@@ -16,13 +16,13 @@ Span::~Span() {}
 
 void Span::addNumber(int number) {
     if (_data.size() >= _maxSize)
-        throw std::runtime_error("Span is full");
+        throw std::runtime_error("No more space ;()");
     _data.push_back(number);
 }
 
 int Span::shortestSpan() const {
     if (_data.size() < 2)
-        throw std::runtime_error("Not enough elements to compute span");
+        throw std::runtime_error("What span? it's just 2 numbers");
 
     std::vector<int> sorted = _data;
     std::sort(sorted.begin(), sorted.end());
@@ -33,15 +33,15 @@ int Span::shortestSpan() const {
         if (span < minSpan)
             minSpan = span;
     }
-    return minSpan;
+    return (minSpan);
 }
 
 int Span::longestSpan() const {
     if (_data.size() < 2)
-        throw std::runtime_error("Not enough elements to compute span");
+        throw std::runtime_error("Do it yourself, it's just 2 numbers");
 
     int minVal = *std::min_element(_data.begin(), _data.end());
     int maxVal = *std::max_element(_data.begin(), _data.end());
 
-    return maxVal - minVal;
+    return (maxVal - minVal);
 }

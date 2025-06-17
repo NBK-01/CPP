@@ -19,7 +19,7 @@ public:
     template<typename Iterator>
     void addRange(Iterator begin, Iterator end) {
         if (static_cast<unsigned int>(std::distance(begin, end)) + _data.size() > _maxSize)
-            throw std::runtime_error("Adding this range exceeds Span capacity");
+            throw std::runtime_error("Too much, give me something realistic");
         _data.insert(_data.end(), begin, end);
     }
     int shortestSpan() const;

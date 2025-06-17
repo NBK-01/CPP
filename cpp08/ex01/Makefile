@@ -1,4 +1,4 @@
-NAME = easyfind
+NAME = Span
 AUTHOR = nkanaan
 COMP = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
