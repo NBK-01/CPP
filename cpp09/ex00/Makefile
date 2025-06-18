@@ -1,9 +1,9 @@
-NAME = bitcoin
+NAME = btc
 AUTHOR = nkanaan
 COMP = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp 
+SRC = main.cpp src/BitcoinExchange.cpp 
 OBJS = $(addprefix objs/, $(SRC:.cpp=.o))
 
 SHELL := /bin/bash

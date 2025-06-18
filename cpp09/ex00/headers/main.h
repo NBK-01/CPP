@@ -26,4 +26,6 @@ typedef std::exception except;
 #define CYAN         "\e[36m"
 #define WHITE        "\e[37m"
 
+#define ARG_ERR "no arguments given: format must be ./btc [file.csv]"
+
 #endif // !MAIN_H
